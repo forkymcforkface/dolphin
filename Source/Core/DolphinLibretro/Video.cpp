@@ -238,8 +238,11 @@ void ContextReset(void)
 
     int efbScale = Libretro::Options::GetCached<int>(
       Libretro::Options::gfx_settings::EFB_SCALE, 1);
+    int base_height = EFB_HEIGHT;
+    if (base_height >= 480 && base_height <= 528)
+      base_height = 480;
     Vk::SetSurfaceSize(EFB_WIDTH * efbScale,
-                       EFB_HEIGHT * efbScale);
+                       base_height * efbScale);
   }
 #endif
 
@@ -295,8 +298,12 @@ void ContextReset(void)
     d3d11->FillD3DBackendInfo();
     UpdateActiveConfig();
 
+    int base_height = EFB_HEIGHT;
+    if (base_height >= 480 && base_height <= 528)
+      base_height = 480;
+
     std::unique_ptr<DX11SwapChain> swap_chain = std::make_unique<DX11SwapChain>(
-      wsi, EFB_WIDTH * efbScale, EFB_HEIGHT * efbScale,
+      wsi, EFB_WIDTH * efbScale, base_height * efbScale,
       nullptr, nullptr);
 
     auto gfx = std::make_unique<DX11::Gfx>(std::move(swap_chain), wsi.render_surface_scale);
@@ -372,8 +379,12 @@ void ContextReset(void)
 
     UpdateActiveConfig();
 
+    int base_height = EFB_HEIGHT;
+    if (base_height >= 480 && base_height <= 528)
+      base_height = 480;
+
     auto swap_chain = std::make_unique<DX12SwapChain>(
-        wsi, EFB_WIDTH * efbScale, EFB_HEIGHT * efbScale, d3d12);
+        wsi, EFB_WIDTH * efbScale, base_height * efbScale, d3d12);
 
     if (!swap_chain->Initialize())
     {

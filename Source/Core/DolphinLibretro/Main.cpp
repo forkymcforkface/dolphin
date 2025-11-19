@@ -102,8 +102,12 @@ void retro_get_system_av_info(retro_system_av_info* info)
   int efbScale = Libretro::Options::GetCached<int>(
     Libretro::Options::gfx_settings::EFB_SCALE);
 
+  int base_height = EFB_HEIGHT;
+  if (base_height >= 480 && base_height <= 528)
+    base_height = 480;
+
   info->geometry.base_width  = EFB_WIDTH * efbScale;
-  info->geometry.base_height = EFB_HEIGHT * efbScale;
+  info->geometry.base_height = base_height * efbScale;
 
   info->geometry.max_width   = info->geometry.base_width;
   info->geometry.max_height  = info->geometry.base_height;

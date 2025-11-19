@@ -58,6 +58,11 @@ else()
 		core
 		uicommon
 		${LIBS}
+    FFmpeg::avcodec
+    FFmpeg::avformat
+    FFmpeg::avutil
+    FFmpeg::swresample
+    FFmpeg::swscale
 	 )
 endif()
 
