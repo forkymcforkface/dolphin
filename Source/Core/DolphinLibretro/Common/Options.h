@@ -191,6 +191,7 @@ namespace gfx_settings {
   constexpr const char ENABLE_PIXEL_LIGHTING[] = "dolphin_pixel_lighting";
   constexpr const char FAST_DEPTH_CALCULATION[] = "dolphin_fast_depth_calculation";
   constexpr const char DISABLE_FOG[] = "dolphin_disable_fog";
+  constexpr const char CROP_OVERSCAN[] = "dolphin_crop_overscan";
 }  // namespace gfx_settings
 
 // ======================================================
