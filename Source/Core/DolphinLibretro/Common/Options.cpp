@@ -1516,9 +1516,7 @@ std::string GetCached<std::string>(const char* key, const std::string def)
 }
 }  // namespace Options
 
-} // namespace Options
-
-bool GetVariable(const char* key, const char*& out_value)
+inline bool GetVariable(const char* key, const char*& out_value)
 {
   retro_variable var{ key, nullptr };
   if (environ_cb && environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
