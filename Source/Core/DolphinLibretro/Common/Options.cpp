@@ -715,8 +715,6 @@ static struct retro_core_option_v2_definition option_defs[] = {
     },
     "disabled"
   },
-    "disabled"
-  },
 
   // ========== Graphics.Enhancements ==========
   {
@@ -1518,7 +1516,9 @@ std::string GetCached<std::string>(const char* key, const std::string def)
 }
 }  // namespace Options
 
-inline bool GetVariable(const char* key, const char*& out_value)
+} // namespace Options
+
+bool GetVariable(const char* key, const char*& out_value)
 {
   retro_variable var{ key, nullptr };
   if (environ_cb && environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
