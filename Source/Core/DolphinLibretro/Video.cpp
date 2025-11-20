@@ -250,7 +250,6 @@ void ContextReset(void)
     int efbScale = Libretro::Options::GetCached<int>(
       Libretro::Options::gfx_settings::EFB_SCALE, 1);
     Vk::SetSurfaceSize(EFB_WIDTH * efbScale,
-    Vk::SetSurfaceSize(EFB_WIDTH * efbScale,
                        GetAdjustedBaseHeight() * efbScale);
   }
 #endif
