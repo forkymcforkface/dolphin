@@ -384,7 +384,6 @@ void ContextReset(void)
     UpdateActiveConfig();
 
     auto swap_chain = std::make_unique<DX12SwapChain>(
-    auto swap_chain = std::make_unique<DX12SwapChain>(
         wsi, EFB_WIDTH * efbScale, GetAdjustedBaseHeight() * efbScale, d3d12);
 
     if (!swap_chain->Initialize())
