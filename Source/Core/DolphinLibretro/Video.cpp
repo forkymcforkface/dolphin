@@ -307,7 +307,6 @@ void ContextReset(void)
     UpdateActiveConfig();
 
     std::unique_ptr<DX11SwapChain> swap_chain = std::make_unique<DX11SwapChain>(
-    std::unique_ptr<DX11SwapChain> swap_chain = std::make_unique<DX11SwapChain>(
       wsi, EFB_WIDTH * efbScale, GetAdjustedBaseHeight() * efbScale,
       nullptr, nullptr);
 
